@@ -1,0 +1,153 @@
+@import "./normalize.css";
+@import "./transition.css";
+
+:root {
+  --color-text: rgb(119, 117, 117);
+  --color-high-text: #ff5777;
+  --color-tint: #ff8198;
+  --color-background: #fff;
+  --font-size: 14px;
+  --line-height: 1.5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  user-select: none; /* 禁止用户鼠标在页面上选中文字/图片等 */
+  -webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
+  background: var(--color-background);
+  color: #000;
+  /* rem vw/vh */
+  width: 100vw;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+
+.clear-fix::after {
+  clear: both;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.clear-fix {
+  zoom: 1;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.loading-container {
+  margin: 100px auto;
+  text-align: center;
+}
+
+.tips {
+  display: block;
+  width: 100%;
+  line-height: 50px;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 4px;
+  
+  background-color: rgb(247, 246, 246);
+}
+
+.silde-enter-active, .slide-leave-active {
+  transition: all 0.3s;
+}
+
+.slide-enter, .slide-leave-to {
+  transform: translate3d(100%, 0, 0)
+}
+
+.song-list-title {
+  color: #000;
+  height: 30px;
+  background-color:#fff;
+  font-size: 16px;
+  font-family: '微软雅黑';
+  display: flex;
+  position: relative;
+  z-index: 5;
+}
+
+.song-list-title {
+  width: 100vw;
+  height: 50px;
+}
+
+.song-list-title img {
+  width: 40px;
+  height: 40px;
+  padding-top: 10px;
+  margin-left: 25px;
+}
+
+.song-list-title h4 {
+  line-height: 50px;
+  padding-left: 10px;
+}
+
+.otws {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.isplaying {
+  padding-bottom: 50px;
+}
+
+.animation-play {
+  animation: rotate 25s linear infinite;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.animation-pause {
+  animation-play-state: paused;
+}
+.animation-running {
+  animation-play-state: running;
+}
+
+.main-scroll {
+  height: calc(100vh - 88px);
+}
+
+
+
+

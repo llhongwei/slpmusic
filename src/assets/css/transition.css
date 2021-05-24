@@ -1,0 +1,15 @@
+.second-leave-active, .first-leave-active {
+  transition: transform .2s ease-out;
+}
+
+.first-enter, .first-leave-to {
+  transform: translateX(-100%);
+}
+
+.first-enter-active, .second-enter-active {
+  transition: transform .2s ease-out;
+}
+
+.second-enter, .second-leave-to {
+  transform: translateX(100%);
+}
