@@ -182,7 +182,7 @@
         'setSequenceList': 'SET_SEQUENCE_LIST',
         'setFullScreen': 'SET_FULL_SCREEN',
         'sedPlaying': 'SET_PLAYING',
-        'sedCurrentIndex': 'SET_CURRENT_INDEX'
+        'sedCurrentIndex': 'SET_CURRENT_INDEX',
       })
     },
     computed: {
@@ -218,6 +218,16 @@
           this.getLyric()
           this.setSequenceList(this.currentSong)
         } 
+      }
+    },
+    created() {
+      if(this.currentIndex != -1) {
+        this.songId = this.currentSong.id
+        this.getSongUrl()
+        this.getSongInfo()
+        this.getLyric()
+        this.setSequenceList(this.currentSong)
+        this.sedPlaying(true)
       }
     }
   }
