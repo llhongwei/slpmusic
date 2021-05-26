@@ -8,5 +8,7 @@ module.exports = {
         'views': '@/views'
       }
     }
-  }
+  },
+  // 基本路径
+  publicPath: './'
 }
