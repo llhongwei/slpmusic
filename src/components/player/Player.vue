@@ -95,6 +95,7 @@
           const res = await this.$https.get('/song/url?id=' + this.songId)
           // console.log(res)
           this.songUrl = res.data.data[0].url
+          this.$refs.player.load()
           // console.log(this.songUrl)
         } catch (error) {
            
@@ -167,7 +168,6 @@
           const m = Math.floor(Math.random() * this.playList.length);
           this.sedCurrentIndex(m)
         }
-        this.$refs.player.load()
       },
       openShowList() {
         this.showList = true
@@ -211,17 +211,20 @@
     watch: {
       currentSong() {
         // console.log(this.currentSong)
-        if(this.currentIndex != -1) {
+        this.$nextTick(() => {
+          if(this.currentIndex != -1) {
           this.songId = this.currentSong.id
           this.getSongUrl()
           this.getSongInfo()
           this.getLyric()
           this.setSequenceList(this.currentSong)
         } 
+        });
       }
     },
     created() {
-      if(this.currentIndex != -1) {
+      this.$nextTick(() => {
+        if(this.currentIndex != -1) {
         this.songId = this.currentSong.id
         this.getSongUrl()
         this.getSongInfo()
@@ -229,6 +232,7 @@
         this.setSequenceList(this.currentSong)
         this.sedPlaying(true)
       }
+      });
     }
   }
 </script>
