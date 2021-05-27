@@ -96,6 +96,7 @@
           // console.log(res)
           this.songUrl = res.data.data[0].url
           this.$refs.player.load()
+          this.$refs.play()
           // console.log(this.songUrl)
         } catch (error) {
            
